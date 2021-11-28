@@ -2,6 +2,7 @@ import numpy as np
 from typing import Tuple
 import matplotlib.pyplot as plt
 from src.features.knn import KNearest
+from src.basedir import BASE_DIR
 
 
 def get_precision_recall_accuracy(y_pred: np.array, y_true: np.array
@@ -23,7 +24,7 @@ def get_precision_recall_accuracy(y_pred: np.array, y_true: np.array
     return precision, recall, accuracy
 
 
-def plot_precision_recall(X_train, y_train, X_test, y_test, *, max_k=30, path="MLpractics/reports/figures"):
+def plot_precision_recall(X_train, y_train, X_test, y_test, *, max_k=30, path=BASE_DIR+"/reports/figures"):
     ks = list(range(1, max_k + 1))
     classes = len(np.unique(list(y_train) + list(y_test)))
     precisions = [[] for _ in range(classes)]
@@ -57,7 +58,7 @@ def plot_precision_recall(X_train, y_train, X_test, y_test, *, max_k=30, path="M
     plot(ks, [accuracies], "Accuracy", legend=False)
 
 
-def plot_roc_curve(X_train, y_train, X_test, y_test, *, max_k=30, path="MLpractics/reports/figures"):
+def plot_roc_curve(X_train, y_train, X_test, y_test, *, max_k=30, path=BASE_DIR+"/reports/figures"):
     positive_samples = sum(1 for y in y_test if y == 0)
     ks = list(range(1, max_k + 1))
     curves_tpr = []

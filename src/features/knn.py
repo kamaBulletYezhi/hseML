@@ -19,7 +19,8 @@ class KNearest:
         self.tree = KDTree(self.X, self.leaf_size)
 
     def predict_proba(self, X: np.array) -> List[np.array]:
-        predict_k_labels = self.y[self.tree.query(X, k=self.n_neighbors)]
+        temp = self.tree.query(X, k=self.n_neighbors)
+        predict_k_labels = self.y[temp]
 
         probability = np.zeros((X.shape[0], len(self.labels)))
         for i, l in enumerate(self.labels):

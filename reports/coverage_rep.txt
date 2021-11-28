@@ -1,0 +1,17 @@
+Name                                 Stmts   Miss  Cover   Missing
+------------------------------------------------------------------
+src/__init__.py                          0      0   100%
+src/basedir.py                           2      0   100%
+src/data/readdataset.py                 17      0   100%
+src/data/splitdataset.py                 9      0   100%
+src/features/kdtree.py                  79     27    66%   12-15, 44-48, 71-82, 90-97
+src/features/knn.py                     26      0   100%
+src/reports/performance_metrics.py      80     57    29%   28-58, 62-89
+tests/__init__.py                        0      0   100%
+tests/test_kdtree.py                    18      0   100%
+tests/test_knn.py                       20      0   100%
+tests/test_performance_metrics.py       13      0   100%
+tests/test_read.py                      24      0   100%
+tests/test_split.py                     12      0   100%
+------------------------------------------------------------------
+TOTAL                                  300     84    72%

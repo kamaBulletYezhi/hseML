@@ -4,7 +4,7 @@ from heapq import nsmallest
 
 
 class KDNode:
-    def __init__(self, ind: int, med: float, parent = None, dots = None):
+    def __init__(self, ind: int, med: float, parent=None, dots=None):
         self.its_leaf = False
         self.parent = parent
         self.dots = dots
