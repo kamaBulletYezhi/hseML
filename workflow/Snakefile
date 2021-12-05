@@ -1,0 +1,39 @@
+BASE_DIR = "/home/kama/pythonProjects/MLpractics/hseML"
+path_to_spam_figs = BASE_DIR + "/reports/figures/spam/"
+path_to_cancer_figs = BASE_DIR + "/reports/figures/cancer/"
+rule all:
+    input:
+        path_to_spam_figs + "Accuracy_max_k_30.png",
+        path_to_spam_figs + "Precision_max_k_30.png",
+        path_to_spam_figs + "Recall_max_k_30.png",
+        path_to_spam_figs + "roc_curve.png",
+        path_to_cancer_figs+"Accuracy_max_k_30.png",
+        path_to_cancer_figs + "Precision_max_k_30.png",
+        path_to_cancer_figs + "Recall_max_k_30.png",
+        path_to_cancer_figs + "roc_curve.png"
+
+rule spam:
+    input:
+        BASE_DIR+"/data/raw/spam.csv"
+    output:
+        path_to_spam_figs+"Accuracy_max_k_30.png",
+        path_to_spam_figs+"Precision_max_k_30.png",
+        path_to_spam_figs+"Recall_max_k_30.png",
+        path_to_spam_figs+"roc_curve.png"
+    params:
+        base_d = BASE_DIR
+    script:
+        "{params.base_d}/workflow/src_/cli.py {input} {params.base_d}/reports/figures"
+
+rule cancer:
+    input:
+        BASE_DIR+"/data/raw/cancer.csv"
+    output:
+        path_to_cancer_figs+"Accuracy_max_k_30.png",
+        path_to_cancer_figs+"Precision_max_k_30.png",
+        path_to_cancer_figs+"Recall_max_k_30.png",
+        path_to_cancer_figs+"roc_curve.png"
+    params:
+        base_d = BASE_DIR
+    script:
+        "{params.base_d}/workflow/src_/cli.py {input} {params.base_d}/reports/figures"
